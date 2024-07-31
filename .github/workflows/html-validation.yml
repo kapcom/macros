@@ -1,0 +1,21 @@
+name: HTML Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Validate HTML
+        uses: chrisderivaux/html-validator-action@v1
+        with:
+          directory: ./
