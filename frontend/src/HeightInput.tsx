@@ -1,38 +1,42 @@
-import React, { useEffect } from 'react';
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
+import React, { useEffect } from 'react'
+import TextField from '@mui/material/TextField'
+import Grid from '@mui/material/Grid'
 
 interface HeightInputProps {
-  height: string;
-  setHeight: (height: string) => void;
-  isMetric: boolean;
+  height: string
+  setHeight: (height: string) => void
+  isMetric: boolean
 }
 
-const HeightInput: React.FC<HeightInputProps> = ({ height, setHeight, isMetric }) => {
-  const [feet, setFeet] = React.useState<string>('');
-  const [inches, setInches] = React.useState<string>('');
+const HeightInput: React.FC<HeightInputProps> = ({
+  height,
+  setHeight,
+  isMetric
+}) => {
+  const [feet, setFeet] = React.useState<string>('')
+  const [inches, setInches] = React.useState<string>('')
 
   useEffect(() => {
     // Reset height input when the height state is cleared
     if (height === '') {
-      setFeet('');
-      setInches('');
+      setFeet('')
+      setInches('')
     }
-  }, [height]);
+  }, [height])
 
   const handleHeightChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setHeight(event.target.value);
-  };
+    setHeight(event.target.value)
+  }
 
   const handleFeetChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFeet(event.target.value);
-    setHeight(`${event.target.value}' ${inches}"`);
-  };
+    setFeet(event.target.value)
+    setHeight(`${event.target.value}' ${inches}"`)
+  }
 
   const handleInchesChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInches(event.target.value);
-    setHeight(`${feet}' ${event.target.value}"`);
-  };
+    setInches(event.target.value)
+    setHeight(`${feet}' ${event.target.value}"`)
+  }
 
   return (
     <>
@@ -70,7 +74,7 @@ const HeightInput: React.FC<HeightInputProps> = ({ height, setHeight, isMetric }
         </Grid>
       )}
     </>
-  );
-};
+  )
+}
 
-export default HeightInput;
+export default HeightInput
