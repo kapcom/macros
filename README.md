@@ -14,4 +14,9 @@ Prerequisites
 - Create Production Build
   - npm run build
 
+- Converted to tsx
+  - npm install --save typescript @types/react @types/react-dom @mui/material @emotion/react @emotion/styled
+  - npm install @mui/material @emotion/react @emotion/styled
+
+
 
