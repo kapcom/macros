@@ -15,7 +15,7 @@ const GenderSelector: React.FC<GenderSelectorProps> = ({ gender, setGender }) =>
     <FormControl component="fieldset">
       <Box display="flex" alignItems="center">
         <Box marginRight={2}>
-          <FormLabel component="legend">Gender</FormLabel>
+          <FormLabel component="legend"></FormLabel>
         </Box>
         <RadioGroup
           row
