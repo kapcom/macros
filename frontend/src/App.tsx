@@ -25,7 +25,7 @@ const App: React.FC = () => {
       <h1 style={{ textAlign: 'center' }}>Macronutrients Calculator</h1>
       <Grid container spacing={2} justifyContent="center">
         <Grid item xs={12} md={6}>
-          <Box display="flex" flexDirection="column" alignItems="flex-start" gap={0.5}>
+          <Box display="flex" flexDirection="column" alignItems="flex-start" gap={1}>
             <Grid container alignItems="center" spacing={1}>
               <Grid item xs={2}>
                 <FormLabel component="legend">Gender</FormLabel>
