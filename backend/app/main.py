@@ -7,7 +7,6 @@ app = FastAPI()
 # Serve the frontend static files
 app.mount("/", StaticFiles(directory="../frontend/build", html=True), name="static")
 
-# Include the macronutrients router
 app.include_router(macronutrients.router)
 
 if __name__ == "__main__":

@@ -1,11 +1,16 @@
-# routers/macronutrients.py
 from fastapi import APIRouter
 from app.models import UserInfo
+from pydantic import BaseModel
 
 router = APIRouter()
 
+class MacronutrientInput(BaseModel):
+    age: int
+    gender: str
+    height: float
+    weight: float
+    activity_level: str
 
-@router.post("/calculate")
-async def calculate_macronutrients(user_info: UserInfo):
-    # Add logic to calculate macronutrients here, rn just returning input data
-    return {"message": "Macronutrients calculated successfully", "data": user_info}
+@router.post("/macronutrients")
+async def calculate_macronutrients(input: MacronutrientInput):
+    return input.dict()
