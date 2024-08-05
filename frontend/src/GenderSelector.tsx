@@ -1,21 +1,31 @@
-import React from 'react';
-import { FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, Box } from '@mui/material';
+import React from 'react'
+import {
+  FormControl,
+  FormLabel,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  Box
+} from '@mui/material'
 
 interface GenderSelectorProps {
-  gender: string;
-  setGender: (value: string) => void;
+  gender: string
+  setGender: (value: string) => void
 }
 
-const GenderSelector: React.FC<GenderSelectorProps> = ({ gender, setGender }) => {
+const GenderSelector: React.FC<GenderSelectorProps> = ({
+  gender,
+  setGender
+}) => {
   const handleGenderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setGender(event.target.value);
-  };
+    setGender(event.target.value)
+  }
 
   return (
     <FormControl component="fieldset">
       <Box display="flex" alignItems="center">
         <Box marginRight={2}>
-          <FormLabel component="legend">Gender</FormLabel>
+          <FormLabel component="legend"></FormLabel>
         </Box>
         <RadioGroup
           row
@@ -29,7 +39,7 @@ const GenderSelector: React.FC<GenderSelectorProps> = ({ gender, setGender }) =>
         </RadioGroup>
       </Box>
     </FormControl>
-  );
+  )
 }
 
-export default GenderSelector;
+export default GenderSelector

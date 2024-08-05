@@ -1,30 +1,31 @@
-import * as React from 'react';
-import TextField from '@mui/material/TextField';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+import React from 'react'
+import TextField from '@mui/material/TextField'
 
 interface WeightInputProps {
-  weight: string;
-  setWeight: (value: string) => void;
+  weight: string
+  setWeight: React.Dispatch<React.SetStateAction<string>>
+  isMetric: boolean
 }
 
-const WeightInput: React.FC<WeightInputProps> = ({ weight, setWeight }) => {
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setWeight(event.target.value);
-  };
+const WeightInput: React.FC<WeightInputProps> = ({
+  weight,
+  setWeight,
+  isMetric
+}) => {
+  const handleWeightChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setWeight(event.target.value)
+  }
 
   return (
-    <FormControl style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '16px' }}>
-      <FormLabel id="weight-input-label" style={{ marginRight: '8px' }}></FormLabel>
-      <TextField
-        id="weight-input"
-        label="Weight"
-        type="number"
-        value={weight}
-        onChange={handleChange}
-      />
-    </FormControl>
-  );
+    <TextField
+      type="number"
+      value={weight}
+      onChange={handleWeightChange}
+      placeholder={isMetric ? 'Weight in kg' : 'Weight in lbs'}
+      variant="outlined"
+      margin="normal"
+    />
+  )
 }
 
-export default WeightInput;
+export default WeightInput
