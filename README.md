@@ -11,7 +11,9 @@ Prerequisites
   - npm install --save typescript @types/react @types/react-dom @mui/material @emotion/react @emotion/styled
   - npm install @mui/material @emotion/react @emotion/styled
   - npm start
-- Create Production Build
+- Create Production Build Dir
+  - export NODE_OPTIONS=--openssl-legacy-provider
+  - npm install
   - npm run build
 
 Workflows
