@@ -4,6 +4,7 @@ from pydantic import BaseModel
 
 router = APIRouter()
 
+
 class MacronutrientInput(BaseModel):
     age: int
     gender: str
@@ -11,6 +12,7 @@ class MacronutrientInput(BaseModel):
     weight: float
     activity_level: str
     is_metric: bool = False
+
 
 @router.post("/api/macronutrients")
 async def calculate_macronutrients(input: MacronutrientInput):
