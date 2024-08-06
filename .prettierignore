@@ -1,3 +1,4 @@
 .prettierrc
 *.md
 tsconfig.json
+*.yml
