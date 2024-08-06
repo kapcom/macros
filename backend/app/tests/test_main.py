@@ -9,7 +9,7 @@ class TestGetResponseGood:
         response = client.get("/")
         assert response.status_code == 200
 
-class TestMacronutrientsEndpoint:
+class TestMetricMacronutrientsEndpoint:
     def test_macronutrients(self):
         data = {
             "age": 35,
