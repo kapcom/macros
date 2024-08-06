@@ -10,6 +10,7 @@ class MacronutrientInput(BaseModel):
     height: float
     weight: float
     activity_level: str
+    is_metric: bool = False
 
 @router.post("/macronutrients")
 async def calculate_macronutrients(input: MacronutrientInput):

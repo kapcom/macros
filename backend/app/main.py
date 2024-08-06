@@ -4,10 +4,11 @@ from app.routers import macronutrients
 
 app = FastAPI()
 
+# Include the macronutrients router with an optional prefix
+app.include_router(macronutrients.router, prefix="/api")
+
 # Serve the frontend static files
 app.mount("/", StaticFiles(directory="../frontend/build", html=True), name="static")
-
-app.include_router(macronutrients.router)
 
 if __name__ == "__main__":
     import uvicorn
