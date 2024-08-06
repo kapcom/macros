@@ -26,4 +26,3 @@ Testing
 
 ## TODO: 
 - add more unit tests
-- fix endpoint to account for metric/us units
