@@ -26,3 +26,5 @@ Testing
 
 ## TODO: 
 - add more unit tests
+- add startup script
+  - `FRONTEND_DIRECTORY=../frontend/build uvicorn app.main:app --reload`
