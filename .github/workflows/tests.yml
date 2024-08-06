@@ -33,14 +33,11 @@ jobs:
 
       - name: Install Python dependencies
         run: |
+          cd backend
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Move frontend build to backend
-        run: |
-          mv frontend/build backend/app/frontend/build
+          pip install -r app/requirements.txt
 
       - name: Run tests
         run: |
           cd backend
-          FRONTEND_DIRECTORY=app/frontend/build PYTHONPATH=./ pytest app/tests/test_main.py
+          FRONTEND_DIRECTORY=../frontend/build PYTHONPATH=./ pytest app/tests/test_main.py
