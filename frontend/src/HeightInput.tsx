@@ -1,28 +1,17 @@
-import React, { useEffect } from 'react'
-import TextField from '@mui/material/TextField'
+import React, { useState } from 'react'
+import { TextField } from '@mui/material'
 import Grid from '@mui/material/Grid'
 
-interface HeightInputProps {
-  height: string
-  setHeight: (height: string) => void
+const HeightInput = ({
+  isMetric,
+  onSubmit
+}: {
   isMetric: boolean
-}
-
-const HeightInput: React.FC<HeightInputProps> = ({
-  height,
-  setHeight,
-  isMetric
+  onSubmit: (finalHeight: string) => void
 }) => {
-  const [feet, setFeet] = React.useState<string>('')
-  const [inches, setInches] = React.useState<string>('')
-
-  useEffect(() => {
-    // Reset height input when the height state is cleared
-    if (height === '') {
-      setFeet('')
-      setInches('')
-    }
-  }, [height])
+  const [height, setHeight] = useState('')
+  const [feet, setFeet] = useState('')
+  const [inches, setInches] = useState('')
 
   const handleHeightChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setHeight(event.target.value)
@@ -36,6 +25,15 @@ const HeightInput: React.FC<HeightInputProps> = ({
   const handleInchesChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInches(event.target.value)
     setHeight(`${feet}' ${event.target.value}"`)
+  }
+
+  const handleSubmit = () => {
+    let finalHeight = height
+    if (!isMetric) {
+      const totalInches = parseInt(feet) * 12 + parseInt(inches)
+      finalHeight = `${totalInches} inches`
+    }
+    onSubmit(finalHeight)
   }
 
   return (
@@ -73,6 +71,7 @@ const HeightInput: React.FC<HeightInputProps> = ({
           </Grid>
         </Grid>
       )}
+      <button onClick={handleSubmit}>Submit</button>
     </>
   )
 }
