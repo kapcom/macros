@@ -36,6 +36,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Copy frontend build to backend
+        run: |
+          mkdir -p backend/frontend
+          cp -r frontend/build backend/frontend/build
+
       - name: Run tests
         run: |
           PYTHONPATH=./backend pytest backend/app/tests
